@@ -12,14 +12,8 @@ export class AppComponent {
   allSupers: any = []
   constructor(private superService: AppService) {
     this.allSupers = this.superService.getAllSupers()
-    console.log('this.allSupers:', this.allSupers)
   }
-  // public data: any = [
-  //   { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-  //   { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-  //   { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-  //   { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' }
-  // ]
+
   public data: any = []
 
   dtOptions: DataTables.Settings = {};
