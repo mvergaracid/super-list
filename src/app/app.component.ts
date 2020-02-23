@@ -23,13 +23,19 @@ export class AppComponent {
   public data: any = []
 
   dtOptions: DataTables.Settings = {};
-
+  dtSearchOptions: DataTables.SearchSettings = {};
+  
   ngOnInit() {
     this.data = this.allSupers
+    this.dtSearchOptions = {
+      search : 'Batman'
+    }
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 100,
       processing: true,
+      responsive: true,
+      search: this.dtSearchOptions
     };
     this.superService.searchById(1)
       .subscribe(res => console.log(res))
@@ -68,6 +74,7 @@ export class AppComponent {
     if (index!== -1) {
       this.data[index].clicked = false
       this.data[index].detail = null
+      this.data[index].error_loading = null
     }
   }
 }
